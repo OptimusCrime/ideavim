@@ -20,12 +20,8 @@ noremap <leader>p "*p
 noremap <leader>P "*P
 
 " easy window navigation
-nnoremap <c-l> <c-w>l
-nnoremap <c-j> <c-w>j
-nnoremap <c-h> <c-w>h
-nnoremap <c-k> <c-w>k
-nnoremap <a-j> gT
-nnoremap <a-k> gt
+nnoremap <a-k> gT
+nnoremap <a-j> gt
 nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 
@@ -40,7 +36,16 @@ nnoremap <leader>l :action HighlightUsagesInFile<cr>
 nnoremap <leader>j :action MethodUp<cr>
 nnoremap <leader>k :action MethodDown<cr>
 
+" built-in navigation to navigated items works better
+nnoremap <c-o> :action Back<cr>
+nnoremap <c-i> :action Forward<cr>
+
+" but preserve ideavim defaults
+nnoremap g<c-o> <c-o>
+nnoremap g<c-i> <c-i>
+
 " reactivate some IDEA shortcuts
 nnoremap <c-n> :action SearchEverywhere<cr>
 nnoremap <c-b> :action GotoImplementation<cr>
 nnoremap <c-s> :action SaveAll<cr>
+nnoremap <c-w> :action CloseEditor<cr>
