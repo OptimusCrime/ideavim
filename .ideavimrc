@@ -1,0 +1,46 @@
+" basic stuff
+set hlsearch
+set scrolloff=3
+set ignorecase smartcase
+set showmode
+set history=1000
+set incsearch
+
+" extensions
+set surround
+set multiple-cursors
+
+" register leader
+let mapleader = "-"
+
+" easy system clipboard copy/paste
+noremap <leader>y "*y
+noremap <leader>Y "*Y
+noremap <leader>p "*p
+noremap <leader>P "*P
+
+" easy window navigation
+nnoremap <c-l> <c-w>l
+nnoremap <c-j> <c-w>j
+nnoremap <c-h> <c-w>h
+nnoremap <c-k> <c-w>k
+nnoremap <a-j> gT
+nnoremap <a-k> gt
+nnoremap <c-s-tab> gT
+nnoremap <c-tab> gt
+
+" clear the search buffer when hitting return
+nnoremap <leader><cr> :nohlsearch<cr>
+
+" Code Refactoring
+nnoremap <leader>rr :action RenameElement<cr>
+
+" code navigation
+nnoremap <leader>l :action HighlightUsagesInFile<cr>
+nnoremap <leader>j :action MethodUp<cr>
+nnoremap <leader>k :action MethodDown<cr>
+
+" reactivate some IDEA shortcuts
+nnoremap <c-n> :action SearchEverywhere<cr>
+nnoremap <c-b> :action GotoImplementation<cr>
+nnoremap <c-s> :action SaveAll<cr>
