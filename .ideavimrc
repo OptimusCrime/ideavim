@@ -5,13 +5,14 @@ set ignorecase smartcase
 set showmode
 set history=1000
 set incsearch
+set clipboard+=unnamed
 
 " extensions
 set surround
 set multiple-cursors
 
 " register leader
-let mapleader = "-"
+let mapleader = "æ"
 
 " easy system clipboard copy/paste
 noremap <leader>y "*y
