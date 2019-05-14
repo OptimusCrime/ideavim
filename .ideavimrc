@@ -6,7 +6,6 @@ set showmode
 set history=1000
 set incsearch
 set clipboard+=unnamed
-set clipboard+=unnamedplus
 
 " extensions
 set surround
@@ -15,9 +14,16 @@ set multiple-cursors
 " register leader
 let mapleader = " "
 
-" do not overwrite default register with replace
-noremap p "0p
-noremap P "0P
+" After block yank and paste, move cursor to the end of operated text and don't override register
+vnoremap y y`]
+vnoremap p "_dP`]
+nnoremap p p`]
+
+" Yank and paste from clipboard
+nnoremap ,y "+y
+vnoremap ,y "+y
+nnoremap ,yy "+yy
+nnoremap ,p "+p
 
 " easy window navigation
 nnoremap <a-k> gT
@@ -32,12 +38,18 @@ nnoremap <leader><cr> :nohlsearch<cr>
 nnoremap <leader>rr :action RenameElement<cr>
 
 " code navigation
-nnoremap <leader>f :action AceAction<CR>
+nnoremap <leader>h :action AceAction<cr>
 nnoremap <leader>j :action MethodUp<cr>
 nnoremap <leader>k :action MethodDown<cr>
 nnoremap <leader>l :action HighlightUsagesInFile<cr>
-nnoremap <leader>ø :action FindUsagesInFile<cr>
-nnoremap <leader>t :action FindNext<cr>
+nnoremap <leader>f {
+nnoremap <leader>d }
+
+" split
+nnoremap <leader>q :action PrevSplitter<cr>
+nnoremap <leader>e :action NextSplitter<cr>
+nnoremap <leader>p :action SplitHorizontally<cr>
+nnoremap <leader>o :action SplitVertically<cr>
 
 " built-in navigation to navigated items works better
 nnoremap <c-o> :action Back<cr>
@@ -49,7 +61,7 @@ nnoremap g<c-i> <c-i>
 
 " reactivate some IDEA shortcuts
 nnoremap <c-n> :action SearchEverywhere<cr>
-nnoremap <c-b> :action GotoImplementation<cr>
+nnoremap <c-b> :action ShowUsages<cr>
 nnoremap <c-s> :action SaveAll<cr>
-nnoremap <c-w> :action CloseEditor<cr>
-nnoremap <c-c> :action ShowUsages<cr>
+nnoremap <c-q> :action CloseEditor<cr>
+nnoremap <c-c> :action GotoImplementation<cr>
