@@ -25,6 +25,39 @@ vnoremap ,y "+y
 nnoremap ,yy "+yy
 nnoremap ,p "+p
 
+" have x (removes single character) not go into the default registry
+nnoremap x "_x
+" Make X an operator that removes without placing text in the default registry
+nmap X "_d
+nmap XX "_dd
+vmap X "_d
+vmap x "_d
+
+" don't yank to default register when changing something
+nnoremap c "xc
+xnoremap c "xc
+
+" Change line, better use S for this.
+nmap cc 1S
+
+" Copy Word
+nmap ,c yiw
+
+" Reselect last-pasted text
+nnoremap gp `[v`]
+
+" Center screen when jumping to next match
+nnoremap n nzz
+nnoremap N Nzz
+vnoremap n nzz
+vnoremap N Nzz
+
+" Center screen when moving up and down
+nnoremap <C-u> <C-u>zz
+nnoremap <C-o> <C-d>zz
+vnoremap <C-u> <C-u>zz
+vnoremap <C-o> <C-d>zz
+
 " easy window navigation
 nnoremap <a-k> gT
 nnoremap <a-j> gt
@@ -34,11 +67,21 @@ nnoremap <c-tab> gt
 " clear the search buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
 
-" Code Refactoring
+" code Refactoring
 nnoremap <leader>rr :action RenameElement<cr>
 
+" comment out
+nnoremap <leader>r :action CommentByLineComment<cr>
+vnoremap <leader>t :action CommentByBlockComment<cr>
+
+" press `f` to activate AceJump
+map ff :action AceAction<cr>
+" press `F` to activate Target Mode
+map ft :action AceTargetAction<cr>
+" press `g` to activate Line Mode
+map fl :action AceLineAction<cr>
+
 " code navigation
-nnoremap <leader>h :action AceAction<cr>
 nnoremap <leader>j :action MethodUp<cr>
 nnoremap <leader>k :action MethodDown<cr>
 nnoremap <leader>l :action HighlightUsagesInFile<cr>
