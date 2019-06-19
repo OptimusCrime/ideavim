@@ -85,6 +85,7 @@ map fl :action AceLineAction<cr>
 nnoremap <leader>j :action MethodUp<cr>
 nnoremap <leader>k :action MethodDown<cr>
 nnoremap <leader>l :action HighlightUsagesInFile<cr>
+nnoremap <leader>n :action NextOccurence<cr>
 nnoremap <leader>f {
 nnoremap <leader>d }
 
@@ -102,9 +103,13 @@ nnoremap <c-i> :action Forward<cr>
 nnoremap g<c-o> <c-o>
 nnoremap g<c-i> <c-i>
 
+" close stuff
+nnoremap <leader>q :action CloseEditor<cr>
+nnoremap <leader>Q :action CloseAllEditors<cr>
+nnoremap <leader>w :action CloseAllEditorsButActive<cr>
+
 " reactivate some IDEA shortcuts
 nnoremap <c-n> :action SearchEverywhere<cr>
 nnoremap <c-b> :action ShowUsages<cr>
 nnoremap <c-s> :action SaveAll<cr>
-nnoremap <c-q> :action CloseEditor<cr>
 nnoremap <c-c> :action GotoImplementation<cr>
