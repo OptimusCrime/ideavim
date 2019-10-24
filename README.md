@@ -16,9 +16,9 @@ Clone this repo and symlink `.ideavimrc` to your `$HOME` directory.
 - [vim-surround](https://github.com/tpope/vim-surround)
 - [vim-multiple-cursors](https://github.com/terryma/vim-multiple-cursors)
 
-## Shortcuts I keep forgetting
+## Keys mapped to IDE defaults
 
-Use `*` or `#` to search for the word under the cursor. `n` and `N` can be used to navigate to next/previous result.
+- **C-E**
 
 ## Other Things
 
