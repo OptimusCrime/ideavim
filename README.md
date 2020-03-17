@@ -11,6 +11,10 @@ Clone this repo and symlink `.ideavimrc` to your `$HOME` directory.
 - IdeaVim (v0.51)
 - AceJump (v3.5.4)
 
+## Custom IDEA shortcuts
+
+- Select In Project View: Alt+QUote
+
 ## VIM Plugin Emulators
 
 - [vim-surround](https://github.com/tpope/vim-surround)
