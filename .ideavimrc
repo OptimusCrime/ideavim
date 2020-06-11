@@ -6,6 +6,7 @@ set showmode
 set history=1000
 set incsearch
 set clipboard+=unnamed
+set rnu
 
 " extensions
 set surround
