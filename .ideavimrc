@@ -11,6 +11,7 @@ set rnu
 " extensions
 set surround
 set multiple-cursors
+set highlightedyank
 
 " register leader
 let mapleader = " "
