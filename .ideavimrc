@@ -6,8 +6,8 @@ set showmode
 set history=1000
 set incsearch
 set clipboard+=unnamed
-set rnu
-
+set relativenumberset visualbell
+set idearefactormode=visual 
 " extensions
 set surround
 set multiple-cursors
@@ -67,51 +67,51 @@ nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 
 " clear the search buffer when hitting return
-nnoremap <leader><cr> :nohlsearch<cr>
+nnoremap <leader><cr> :nohlsearch
 
 " code Refactoring
-nnoremap <leader>rr :action RenameElement<cr>
+:map <leader>rr <Action>(RenameElement)
 
 " comment out
-nnoremap <leader>r :action CommentByLineComment<cr>
-vnoremap <leader>t :action CommentByBlockComment<cr>
+:map <leader>r <Action>(CommentByLineComment)
+:map <leader>t <Action>(CommentByBlockComment)
 
 " press `f` to activate AceJump
-map ff :action AceAction<cr>
+:map ff <Action>(AceAction)
 " press `F` to activate Target Mode
-map ft :action AceTargetAction<cr>
+:map ft <Action>(AceTargetAction)
 " press `g` to activate Line Mode
-map fl :action AceLineAction<cr>
+:map fl <Action>(AceLineAction)
 
 " code navigation
-nnoremap <leader>j :action MethodUp<cr>
-nnoremap <leader>k :action MethodDown<cr>
-nnoremap <leader>l :action HighlightUsagesInFile<cr>
-nnoremap <leader>n :action NextOccurence<cr>
+:map <leader>j <Action>(MethodUp)
+:map <leader>k <Action>(MethodDown)
+:map <leader>l <Action>(HighlightUsagesInFile)
+:map <leader>n <Action>(NextOccurence)
 nnoremap <leader>f {
 nnoremap <leader>d }
 
 " split
-nnoremap <leader>q :action PrevSplitter<cr>
-nnoremap <leader>e :action NextSplitter<cr>
-nnoremap <leader>p :action SplitHorizontally<cr>
-nnoremap <leader>o :action SplitVertically<cr>
+:map <leader>q <Action>(PrevSplitter)
+:map <leader>e <Action>(NextSplitter)
+:map <leader>p <Action>(SplitHorizontally)
+:map <leader>o <Action>(SplitVertically)
 
 " built-in navigation to navigated items works better
-nnoremap <c-o> :action Back<cr>
-nnoremap <c-i> :action Forward<cr>
+:map <c-o> <Action>(Back)
+:map <c-i> <Action>(Forward)
 
 " but preserve ideavim defaults
-nnoremap g<c-o> <c-o>
-nnoremap g<c-i> <c-i>
+:map g<c-o> <c-o>
+:map g<c-i> <c-i>
 
 " close stuff
-nnoremap <leader>q :action CloseEditor<cr>
-nnoremap <leader>Q :action CloseAllEditors<cr>
-nnoremap <leader>w :action CloseAllEditorsButActive<cr>
+:map <leader>q <Action>(CloseEditor)
+:map <leader>Q <Action>(CloseAllEditors)
+:map <leader>w <Action>(CloseAllEditorsButActive)
 
 " reactivate some IDEA shortcuts
-nnoremap <c-n> :action SearchEverywhere<cr>
-nnoremap <c-b> :action ShowUsages<cr>
-nnoremap <c-s> :action SaveAll<cr>
-nnoremap <c-c> :action GotoImplementation<cr>
+:map <c-n> <Action>(SearchEverywhere)
+:map <c-b> <Action>(ShowUsages)
+:map <c-s> <Action>(SaveAll)
+:map <c-c> <Action>(GotoImplementation)

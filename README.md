@@ -24,6 +24,10 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 CapsLock::Esc
 ```
 
+## Remember stuff
+
+_Some things I need to remember here._
+
 ### Source changes
 
 Open up the vim terminal inside IDEA (by typing `:`), then execute:
@@ -34,12 +38,14 @@ source ~/.ideavimrc
 
 ## IDEA Plugins
 
-- [IdeaVim](https://github.com/JetBrains/ideavim) (v0.59)
-- [AceJump](https://github.com/acejump/AceJump) (v3.6.3)
+- [IdeaVim](https://github.com/JetBrains/ideavim)
+- [AceJump](https://github.com/acejump/AceJump)
 
 ## Custom IDEA shortcuts
 
-- Select In Project View: Alt+QUote
+- Other -> Select In Project View: <kbd>Alt+Quote</kbd>
+- Editor Actions -> Down: <kbd>Ctrl+j</kbd>
+- Editor Actions -> Up: <kbd>Ctrl+k</kbd>
 
 ## VIM Plugin Emulators
 
@@ -48,7 +54,9 @@ source ~/.ideavimrc
 
 ## Keys mapped to IDE defaults
 
-- **C-E**
+- **c-e**
+- **c-j**
+- **c-k**
 
 ## Other Things
 
