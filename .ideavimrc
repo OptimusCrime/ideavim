@@ -6,8 +6,9 @@ set showmode
 set history=1000
 set incsearch
 set clipboard+=unnamed
-set relativenumberset visualbell
-set idearefactormode=visual 
+set relativenumber
+set visualbell
+set idearefactormode=visual
 " extensions
 set surround
 set multiple-cursors
@@ -67,7 +68,7 @@ nnoremap <c-s-tab> gT
 nnoremap <c-tab> gt
 
 " clear the search buffer when hitting return
-nnoremap <leader><cr> :nohlsearch
+nnoremap <leader><cr> :nohlsearch<cr>
 
 " code Refactoring
 :map <leader>rr <Action>(RenameElement)

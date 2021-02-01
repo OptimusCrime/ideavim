@@ -1,4 +1,4 @@
-# ideavimrc
+# IdeaVim
 
 Stuff I use for IdeaVim.
 
