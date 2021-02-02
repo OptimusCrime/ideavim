@@ -64,6 +64,13 @@ source ~/.ideavimrc
 - Editor Actions -> Down: <kbd>Ctrl+j</kbd>
 - Editor Actions -> Up: <kbd>Ctrl+k</kbd>
 
+### macOS specific
+
+- Main Menu -> Window -> Editor Tabs -> Select Next Tab: <kbd>⌘j</kbd>
+- Main Menu -> Window -> Editor Tabs -> Select Previous Tab: <kbd>⌘k</kbd>
+- Main Menu -> View -> Recent Files: <kbd>^e</kbd>
+
+
 ## VIM Plugin Emulators
 
 - [vim-surround](https://github.com/tpope/vim-surround)
