@@ -11,7 +11,7 @@ Clone this repo and symlink `.ideavimrc` to your `$HOME` directory.
 If you have to use Windows, you can symlink using the command example below. Run CMD as Administrator.
 
 ```
-mklink C:\Users\you-username\path\to\repo\.ideavimrc C:\Users\your-username\.ideavimrc
+mklink C:\Users\your-username\.ideavimrc C:\Users\you-username\path\to\repo\ideavimrc
 ```
 
 You may also want to install [AutoHotKey](https://www.autohotkey.com) and install the script below to make Caps Lock act as Esc. Save the file as `whatever.ahk`.
@@ -24,9 +24,26 @@ SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 CapsLock::Esc
 ```
 
-## Remember stuff
+### macOS/Linux installation
 
-_Some things I need to remember here._
+```
+ln -s /path/to/repo/ideavimrc ~/.ideavimrc
+```
+
+## Stuff to remember
+
+### Default commands
+
+- `gd`: Goto definition.
+
+[See all](https://github.com/JetBrains/ideavim/blob/master/src/com/maddyhome/idea/vim/package-info.java)
+
+### Commands I always forget
+
+- `gUiw`: Uppercase inner word (lowercase `u` for lowercasing).
+- `m[A-Z]`: Create mark (using IDEA marks).
+- `'[A-Z]`: Goto mark.
+- `'.`: Goto line start of last change in buffer.
 
 ### Source changes
 
