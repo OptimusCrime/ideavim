@@ -60,9 +60,9 @@ source ~/.ideavimrc
 
 ## Custom IDEA shortcuts
 
-- Other -> Select In Project View: <kbd>Alt+Quote</kbd>
-- Editor Actions -> Down: <kbd>Ctrl+j</kbd>
-- Editor Actions -> Up: <kbd>Ctrl+k</kbd>
+- Other -> Select In Project View: <kbd>Alt+Quote</kbd> | <kbd>⌘\</kbd>
+- Editor Actions -> Down: <kbd>Ctrl+j</kbd> | <kbd>^j</kbd>
+- Editor Actions -> Up: <kbd>Ctrl+k</kbd> | <kbd>^k</kbd>
 
 ### macOS specific
 

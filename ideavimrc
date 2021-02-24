@@ -13,6 +13,7 @@ set idearefactormode=visual
 set surround
 set multiple-cursors
 set highlightedyank
+set NERDTree
 
 " register leader
 let mapleader = " "
@@ -69,6 +70,7 @@ nnoremap <c-tab> gt
 
 " clear the search buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
+:map <leader>h :NERDTree<cr>
 
 " code Refactoring
 :map <leader>rr <Action>(RenameElement)
