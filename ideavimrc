@@ -1,6 +1,6 @@
 " basic stuff
 set hlsearch
-set scrolloff=3
+set scrolloff=999
 set ignorecase smartcase
 set showmode
 set history=1000
@@ -14,6 +14,7 @@ set surround
 set multiple-cursors
 set highlightedyank
 set NERDTree
+set argtextobj
 
 " register leader
 let mapleader = " "
@@ -70,35 +71,35 @@ nnoremap <c-tab> gt
 
 " clear the search buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
-:map <leader>h :NERDTree<cr>
+:map <leader>n :NERDTree<cr>
 
 " code Refactoring
 :map <leader>rr <Action>(RenameElement)
+:map <leader>fc <Action>(ReformatCode)
+
+" stuff
+:map <leader>ff <Action>(QuickJavaDoc)
+:map <leader>ee <Action>(ShowErrorDescription)
+:map <leader>bb <Action>(ToggleLineBreakpoint)
+:map <leader>hh <Action>(QuickImplementations)
 
 " comment out
-:map <leader>r <Action>(CommentByLineComment)
-:map <leader>t <Action>(CommentByBlockComment)
+:map <leader>cc <Action>(CommentByLineComment)
+:map <leader>tt <Action>(CommentByBlockComment)
 
-" press `f` to activate AceJump
+" ace
 :map ff <Action>(AceAction)
-" press `F` to activate Target Mode
 :map ft <Action>(AceTargetAction)
-" press `g` to activate Line Mode
 :map fl <Action>(AceLineAction)
 
 " code navigation
 :map <leader>j <Action>(MethodUp)
 :map <leader>k <Action>(MethodDown)
 :map <leader>l <Action>(HighlightUsagesInFile)
-:map <leader>n <Action>(NextOccurence)
+:map <leader>x <Action>(QuickImplementations)
+:map <leader>n <Action>(FindPrevious)
 nnoremap <leader>f {
 nnoremap <leader>d }
-
-" split
-:map <leader>q <Action>(PrevSplitter)
-:map <leader>e <Action>(NextSplitter)
-:map <leader>p <Action>(SplitHorizontally)
-:map <leader>o <Action>(SplitVertically)
 
 " built-in navigation to navigated items works better
 :map <c-o> <Action>(Back)
