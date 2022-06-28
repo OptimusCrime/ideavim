@@ -9,6 +9,8 @@ set clipboard+=unnamed
 set relativenumber
 set visualbell
 set idearefactormode=visual
+set showcmd
+set showmode
 " extensions
 set surround
 set multiple-cursors
@@ -71,17 +73,23 @@ nnoremap <c-tab> gt
 
 " clear the search buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
-:map <leader>n :NERDTree<cr>
 
 " code Refactoring
-:map <leader>rr <Action>(RenameElement)
+:map <leader>r <Action>(RenameElement)
+:map <leader>R <Action>(Refactorings.QuickListPopupAction)
 :map <leader>fc <Action>(ReformatCode)
+:map <leader>sw <Action>(SurroundWith)
+:map <leader>oi <Action>(OptimizeImports)
 
 " stuff
 :map <leader>ff <Action>(QuickJavaDoc)
 :map <leader>ee <Action>(ShowErrorDescription)
-:map <leader>bb <Action>(ToggleLineBreakpoint)
 :map <leader>hh <Action>(QuickImplementations)
+
+" breakpoints
+:map <leader>bb <Action>(ToggleLineBreakpoint)
+:map <leader>bs <Action>(ViewBreakpoints)
+:map <leader>br <Action>(Debugger.RemoveAllBreakpoints)
 
 " comment out
 :map <leader>cc <Action>(CommentByLineComment)
@@ -93,13 +101,24 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map fl <Action>(AceLineAction)
 
 " code navigation
-:map <leader>j <Action>(MethodUp)
-:map <leader>k <Action>(MethodDown)
-:map <leader>l <Action>(HighlightUsagesInFile)
-:map <leader>x <Action>(QuickImplementations)
-:map <leader>n <Action>(FindPrevious)
+:map (( <Action>(MethodUp)
+:map )) <Action>(MethodDown)
+:map <leader>hu <Action>(HighlightUsagesInFile)
 nnoremap <leader>f {
 nnoremap <leader>d }
+nnoremap <leader>rl <Action>(RecentLocations)
+nnoremap <leader>sh <Action>(LocalHistory.ShowHistory)
+nnoremap ge :action GotoNextError<CR>
+nnoremap gE :action GotoPreviousError<CR>
+nnoremap g, :action JumpToLastChange <CR>
+nnoremap g. :action JumpToNextChange <CR>
+map <leader>m <Action>(ShowIntentionActions)
+map <leader>o <Action>(FileStructurePopup)
+map <leader>pw <Action>(SelectInProjectView)
+map gn <Action>(VcsShowNextChangeMarker)
+map gp <Action>(VcsShowPrevChangeMarker)
+nmap g) <Action>(GotoNextElementUnderCaretUsage)
+nmap g( <Action>(GotoPrevElementUnderCaretUsage)
 
 " built-in navigation to navigated items works better
 :map <c-o> <Action>(Back)
@@ -119,3 +138,14 @@ nnoremap <leader>d }
 :map <c-b> <Action>(ShowUsages)
 :map <c-s> <Action>(SaveAll)
 :map <c-c> <Action>(GotoImplementation)
+
+" run stuff
+:map <leader>cg <Action>(ChooseRunConfiguration)
+:map <leader>dg <Action>(ChooseDebugConfiguration)
+map <leader>1 <Action>(Run)
+map <leader>2 <Action>(Debug)
+map <leader>0 <Action>(Stop)
+
+" other things
+nnoremap <leader>ns :action NewScratchFile<CR>
+nnoremap <leader>an :action Annotate<CR>
