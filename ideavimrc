@@ -8,7 +8,7 @@ set incsearch
 set clipboard+=unnamed
 set relativenumber
 set visualbell
-set idearefactormode=visual
+set idearefactormode=keep
 set showcmd
 set showmode
 " extensions
@@ -101,24 +101,24 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map fl <Action>(AceLineAction)
 
 " code navigation
-:map (( <Action>(MethodUp)
-:map )) <Action>(MethodDown)
+:map <leader>k {
+:map <leader>j }
+:map <leader>h <Action>(MethodUp)
+:map <leader>l <Action>(MethodDown)
 :map <leader>hu <Action>(HighlightUsagesInFile)
-nnoremap <leader>f {
-nnoremap <leader>d }
 nnoremap <leader>rl <Action>(RecentLocations)
 nnoremap <leader>sh <Action>(LocalHistory.ShowHistory)
 nnoremap ge :action GotoNextError<CR>
 nnoremap gE :action GotoPreviousError<CR>
 nnoremap g, :action JumpToLastChange <CR>
 nnoremap g. :action JumpToNextChange <CR>
-map <leader>m <Action>(ShowIntentionActions)
-map <leader>o <Action>(FileStructurePopup)
-map <leader>pw <Action>(SelectInProjectView)
 map gn <Action>(VcsShowNextChangeMarker)
 map gp <Action>(VcsShowPrevChangeMarker)
 nmap g) <Action>(GotoNextElementUnderCaretUsage)
 nmap g( <Action>(GotoPrevElementUnderCaretUsage)
+map <leader>m <Action>(ShowIntentionActions)
+map <leader>o <Action>(FileStructurePopup)
+map <leader>pw <Action>(SelectInProjectView)
 
 " built-in navigation to navigated items works better
 :map <c-o> <Action>(Back)
@@ -135,6 +135,7 @@ nmap g( <Action>(GotoPrevElementUnderCaretUsage)
 
 " reactivate some IDEA shortcuts
 :map <c-n> <Action>(SearchEverywhere)
+:map <leader>g <Action>(GotoFile)
 :map <c-b> <Action>(ShowUsages)
 :map <c-s> <Action>(SaveAll)
 :map <c-c> <Action>(GotoImplementation)

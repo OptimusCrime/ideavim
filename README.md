@@ -57,6 +57,10 @@ source ~/.ideavimrc
 
 - [IdeaVim](https://github.com/JetBrains/ideavim)
 - [AceJump](https://github.com/acejump/AceJump)
+- Nyan Progress Bar
+- Rainbow Brackets
+- Solarized Theme
+- SonarLin
 
 ## Custom IDEA shortcuts
 
@@ -70,7 +74,6 @@ source ~/.ideavimrc
 - Main Menu -> Window -> Editor Tabs -> Select Previous Tab: <kbd>⌘k</kbd>
 - Main Menu -> View -> Recent Files: <kbd>^e</kbd>
 
-
 ## VIM Plugin Emulators
 
 - [vim-surround](https://github.com/tpope/vim-surround)
@@ -82,8 +85,28 @@ source ~/.ideavimrc
 - **c-j**
 - **c-k**
 
-## Other Things
+## Editor config
+
+- Color Scheme: Solarized Dark
+- Editor Tabs: Tab placement: None
+
+## Editor styling
 
 - **Font:** [Hack](https://github.com/source-foundry/Hack)
 - **Size:** 12
 - **Line spacing:** 1.2
+
+## Webstorm
+
+- Show auto-import tooltip: Yes
+- Add ES6 imports on code completion: Yes
+- Add TypeScript imports automatically: Yes
+- Add TypeScript imports automatically, On code completion: Yes
+- Add TypeScript imports automatically, With auto-import tooltip: No
+- Add TypeScript imports automatically, Unambiguous imports on the fly: Yes
+
+- Type-Matching Completion: Yes
+- Sort suggestions alphabetically: No
+- Show suggestions as you type: Yes
+- Show suggestions as you type, Insert selected suggestion by typing space, [...]: No
+- Insert parentheses automatically when applicable: Yes
