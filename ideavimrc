@@ -26,6 +26,9 @@ vnoremap y y`]
 vnoremap p "_dP`]
 nnoremap p p`]
 
+" Y yank whole line by default
+nnoremap Y y$
+
 " Yank and paste from clipboard
 nnoremap ,y "+y
 vnoremap ,y "+y
@@ -49,6 +52,9 @@ nmap cc 1S
 
 " Copy Word
 nmap ,c yiw
+
+" Select word
+nmap ,v viw
 
 " Reselect last-pasted text
 nnoremap gp `[v`]
@@ -106,23 +112,27 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>h <Action>(MethodUp)
 :map <leader>l <Action>(MethodDown)
 :map <leader>hu <Action>(HighlightUsagesInFile)
-nnoremap <leader>rl <Action>(RecentLocations)
-nnoremap <leader>sh <Action>(LocalHistory.ShowHistory)
-nnoremap ge :action GotoNextError<CR>
-nnoremap gE :action GotoPreviousError<CR>
-nnoremap g, :action JumpToLastChange <CR>
-nnoremap g. :action JumpToNextChange <CR>
-map gn <Action>(VcsShowNextChangeMarker)
-map gp <Action>(VcsShowPrevChangeMarker)
-nmap g) <Action>(GotoNextElementUnderCaretUsage)
-nmap g( <Action>(GotoPrevElementUnderCaretUsage)
-map <leader>m <Action>(ShowIntentionActions)
-map <leader>o <Action>(FileStructurePopup)
-map <leader>pw <Action>(SelectInProjectView)
+:map <leader>rl <Action>(RecentLocations)
+:map <leader>sh <Action>(LocalHistory.ShowHistory)
+:map ge <Action>(GotoNextError)
+:map gE <Action>(GotoPreviousError)
+:map g, <Action>(JumpToLastChange)
+:map g. <Action>(JumpToNextChange)
+:map gn <Action>(VcsShowNextChangeMarker)
+:map gp <Action>(VcsShowPrevChangeMarker)
+:nmap g) <Action>(GotoNextElementUnderCaretUsage)
+:nmap g( <Action>(GotoPrevElementUnderCaretUsage)
+:map <leader>m <Action>(ShowIntentionActions)
+:map <leader>o <Action>(FileStructurePopup)
+:map <leader>pw <Action>(SelectInProjectView)
+
+" splits
+:nmap <leader>i <Action>(PrevSplitter)
+:nmap <c-v> <Action>(SplitVertically)
 
 " built-in navigation to navigated items works better
-:map <c-o> <Action>(Back)
-:map <c-i> <Action>(Forward)
+:nmap <c-o> <Action>(Back)
+:nmap <c-i> <Action>(Forward)
 
 " but preserve ideavim defaults
 :map g<c-o> <c-o>
@@ -143,10 +153,13 @@ map <leader>pw <Action>(SelectInProjectView)
 " run stuff
 :map <leader>cg <Action>(ChooseRunConfiguration)
 :map <leader>dg <Action>(ChooseDebugConfiguration)
-map <leader>1 <Action>(Run)
-map <leader>2 <Action>(Debug)
-map <leader>0 <Action>(Stop)
+:map <leader>1 <Action>(Run)
+:map <leader>2 <Action>(Debug)
+:map <leader>0 <Action>(Stop)
 
 " other things
-nnoremap <leader>ns :action NewScratchFile<CR>
-nnoremap <leader>an :action Annotate<CR>
+:map <leader>ns <Action>(NewScratchFile)
+:map <leader>an <Action>(Annotate)
+
+" source
+:map <leader>9 :source ~/.ideavimrc<CR>
