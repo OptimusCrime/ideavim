@@ -22,11 +22,11 @@ set argtextobj
 let mapleader = " "
 
 " After block yank and paste, move cursor to the end of operated text and don't override register
-vnoremap y y`]
 vnoremap p "_dP`]
 nnoremap p p`]
 
 " Y yank whole line by default
+vnoremap y ygv<Esc>$
 nnoremap Y y$
 
 " Yank and paste from clipboard
