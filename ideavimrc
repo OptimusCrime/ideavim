@@ -91,6 +91,7 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>ff <Action>(QuickJavaDoc)
 :map <leader>ee <Action>(ShowErrorDescription)
 :map <leader>hh <Action>(QuickImplementations)
+:map <leader>gh <Action>(ShowHoverInfo)
 
 " breakpoints
 :map <leader>bb <Action>(ToggleLineBreakpoint)
@@ -109,8 +110,8 @@ nnoremap <leader><cr> :nohlsearch<cr>
 " code navigation
 :map <leader>k {
 :map <leader>j }
-:map <leader>h <Action>(MethodUp)
-:map <leader>l <Action>(MethodDown)
+:map <leader>H <Action>(MethodUp)
+:map <leader>L <Action>(MethodDown)
 :map <leader>hu <Action>(HighlightUsagesInFile)
 :map <leader>rl <Action>(RecentLocations)
 :map <leader>sh <Action>(LocalHistory.ShowHistory)
@@ -125,6 +126,8 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>m <Action>(ShowIntentionActions)
 :map <leader>o <Action>(FileStructurePopup)
 :map <leader>pw <Action>(SelectInProjectView)
+:map <leader>rt <Action>(RunContextGroup)
+
 
 " splits
 :nmap <leader>i <Action>(PrevSplitter)
@@ -145,7 +148,7 @@ nnoremap <leader><cr> :nohlsearch<cr>
 
 " reactivate some IDEA shortcuts
 :map <c-n> <Action>(SearchEverywhere)
-:map <leader>g <Action>(GotoFile)
+:map <leader>gg <Action>(GotoFile)
 :map <c-b> <Action>(ShowUsages)
 :map <c-s> <Action>(SaveAll)
 :map <c-c> <Action>(GotoImplementation)
