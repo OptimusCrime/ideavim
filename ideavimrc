@@ -11,12 +11,15 @@ set visualbell
 set idearefactormode=keep
 set showcmd
 set showmode
+
 " extensions
 set surround
 set multiple-cursors
 set highlightedyank
 set NERDTree
 set argtextobj
+set sneak
+set quickscope
 
 " register leader
 let mapleader = " "
@@ -88,7 +91,7 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>oi <Action>(OptimizeImports)
 
 " stuff
-:map <leader>ff <Action>(QuickJavaDoc)
+:map <leader>er <Action>(QuickJavaDoc)
 :map <leader>ee <Action>(ShowErrorDescription)
 :map <leader>hh <Action>(QuickImplementations)
 :map <leader>gh <Action>(ShowHoverInfo)
@@ -103,9 +106,9 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>tt <Action>(CommentByBlockComment)
 
 " ace
-:map ff <Action>(AceAction)
-:map ft <Action>(AceTargetAction)
-:map fl <Action>(AceLineAction)
+:map <leader>f <Action>(AceAction)
+:map <leader>F <Action>(AceTargetAction)
+:map <leader>fl <Action>(AceLineAction)
 
 " code navigation
 :map <leader>k {
