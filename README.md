@@ -35,6 +35,7 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 - `'[A-Z]`: Goto mark.
 - `'.`: Goto line start of last change in buffer.
 - `%`: Goto end of bracket etc.
+- `gv`: Reselect last selection.
 
 ### Source changes
 
