@@ -93,7 +93,7 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>er <Action>(QuickJavaDoc)
 :map <leader>ee <Action>(ShowErrorDescription)
 :map <leader>hh <Action>(QuickImplementations)
-:map <leader>gh <Action>(ShowHoverInfo)
+:map <leader>hj <Action>(ShowHoverInfo)
 
 " breakpoints
 :map <leader>bb <Action>(ToggleLineBreakpoint)
@@ -109,29 +109,30 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map F <Action>(AceTargetAction)
 :map fl <Action>(AceLineAction)
 
-" code navigation
-:map <leader>k {
-:map <leader>j }
-:map <leader>H <Action>(MethodUp)
-:map <leader>L <Action>(MethodDown)
+" various functionality
 :map <leader>hu <Action>(HighlightUsagesInFile)
 :map <leader>rl <Action>(RecentLocations)
+:map gu <Action>(RecentChangedFiles)
 :map <leader>sh <Action>(LocalHistory.ShowHistory)
-:map ge <Action>(GotoNextError)
-:map gE <Action>(GotoPreviousError)
-:map g, <Action>(JumpToLastChange)
-:map g. <Action>(JumpToNextChange)
-:map gn <Action>(VcsShowNextChangeMarker)
-:map gp <Action>(VcsShowPrevChangeMarker)
-:nmap g) <Action>(GotoNextElementUnderCaretUsage)
-:nmap g( <Action>(GotoPrevElementUnderCaretUsage)
 :map <leader>m <Action>(ShowIntentionActions)
 :map <leader>o <Action>(FileStructurePopup)
 :map <leader>pw <Action>(SelectInProjectView)
 :map <leader>rt <Action>(RunContextGroup)
-:map <leader>gdn <Action>(NextDiff)
-:map <leader>gdp <Action>(PreviousDiff)
+:map gh <Action>(GotoDeclaration)
 
+" code navigation
+:map gf {
+:map gj }
+:map gd <Action>(MethodUp)
+:map gk <Action>(MethodDown)
+:map ge <Action>(GotoNextError)
+:map gE <Action>(GotoPreviousError)
+:map gs <Action>(JumpToLastChange)
+:map gl <Action>(JumpToNextChange)
+:map ga <Action>(VcsShowNextChangeMarker)
+:map gø <Action>(VcsShowPrevChangeMarker)
+:map gn <Action>(GotoNextElementUnderCaretUsage)
+:map gN <Action>(GotoPrevElementUnderCaretUsage)
 
 " splits
 :nmap <leader>i <Action>(PrevSplitter)
