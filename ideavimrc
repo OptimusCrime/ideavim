@@ -169,5 +169,8 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>ns <Action>(NewScratchFile)
 :map <leader>an <Action>(Annotate)
 
+" The result of typing ¨ one billion times
+:map U ~
+
 " source
 :map <leader>9 :source ~/.ideavimrc<CR>
