@@ -101,8 +101,8 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>br <Action>(Debugger.RemoveAllBreakpoints)
 
 " comment out
-:map <leader>cc <Action>(CommentByLineComment)
-:map <leader>tt <Action>(CommentByBlockComment)
+:map <leader>cl <Action>(CommentByLineComment)
+:map <leader>cb <Action>(CommentByBlockComment)
 
 " ace
 :map ff <Action>(AceAction)
@@ -168,9 +168,8 @@ nnoremap <leader><cr> :nohlsearch<cr>
 " other things
 :map <leader>ns <Action>(NewScratchFile)
 :map <leader>an <Action>(Annotate)
-
-" The result of typing ¨ one billion times
-:map U ~
+:map <leader>tw <Action>(ActivateProjectToolWindow)
+:map <leader>jj viwp
 
 " source
 :map <leader>9 :source ~/.ideavimrc<CR>
