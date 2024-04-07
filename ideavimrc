@@ -8,9 +8,10 @@ set incsearch
 set clipboard+=unnamed
 set relativenumber
 set visualbell
-set idearefactormode=keep
+set idearefactormode=normal
 set showcmd
 set showmode
+set ideastatusicon=gray
 
 " extensions
 set surround
@@ -23,6 +24,13 @@ set quickscope
 
 " register leader
 let mapleader = " "
+
+map H ^
+map L $
+map J }
+map K {
+
+map <leader>@ ~
 
 " After block yank and paste, move cursor to the end of operated text and don't override register
 vnoremap p "_dP`]
@@ -119,6 +127,12 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>pw <Action>(SelectInProjectView)
 :map <leader>rt <Action>(RunContextGroup)
 :map gh <Action>(GotoDeclaration)
+:map <leader>so <Action>(SelectAllOccurrences)
+xnoremap < <gv
+xnoremap > >gv
+
+" copy whole file
+nmap <C-a> ggVG"+y
 
 " code navigation
 :map gf {

@@ -22,6 +22,13 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 
 ## Stuff to remember
 
+### Plugin settings
+
+| Shortcut | Handler |
+|----------|---------|
+| ^J       | IDE     |
+| ^K       | IDE     |
+
 ### Default commands
 
 - `gd`: Goto definition.
@@ -63,8 +70,8 @@ source ~/.ideavimrc
 
 ## Custom IDEA shortcuts
 
-- Editor Actions -> Down: <kbd>Ctrl+j</kbd> | <kbd>^j</kbd>
-- Editor Actions -> Up: <kbd>Ctrl+k</kbd> | <kbd>^k</kbd>
+- Editor Actions -> Down: <kbd>Ctrl+j</kbd> or <kbd>^j</kbd>
+- Editor Actions -> Up: <kbd>Ctrl+k</kbd> or <kbd>^k</kbd>
 
 ## Editor config
 
@@ -76,19 +83,3 @@ source ~/.ideavimrc
 - **Font:** [Hack](https://github.com/source-foundry/Hack)
 - **Size:** 12
 - **Line spacing:** 1.2
-
-## Webstorm
-
-- Show auto-import tooltip: Yes
-- Add TypeScript imports on code completion: Yes
-- Add TypeScript imports automatically: Yes
-- Add TypeScript imports automatically, On code completion: Yes
-- Add TypeScript imports automatically, With auto-import tooltip: No
-- Add TypeScript imports automatically, Unambiguous imports on the fly: Yes
-
-
-- Type-Matching Completion: Yes
-- Sort suggestions alphabetically: No
-- Show suggestions as you type: Yes
-- Show suggestions as you type, Insert selected suggestion by typing space, [...]: No
-- Insert parentheses automatically when applicable: Yes
