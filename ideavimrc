@@ -92,8 +92,8 @@ nnoremap <c-tab> gt
 nnoremap <leader><cr> :nohlsearch<cr>
 
 " code Refactoring
-:map <leader>r <Action>(RenameElement)
-:map <leader>R <Action>(Refactorings.QuickListPopupAction)
+:map <leader>rr <Action>(RenameElement)
+:map <leader>RR <Action>(Refactorings.QuickListPopupAction)
 :map <leader>sw <Action>(SurroundWith)
 :map <leader>oi <Action>(OptimizeImports)
 
@@ -114,13 +114,13 @@ nnoremap <leader><cr> :nohlsearch<cr>
 
 " ace
 :map ff <Action>(AceAction)
-:map F <Action>(AceTargetAction)
+:map fv <Action>(AceTargetAction)
 :map fl <Action>(AceLineAction)
 
 " various functionality
 :map <leader>hu <Action>(HighlightUsagesInFile)
 :map <leader>rl <Action>(RecentLocations)
-:map gu <Action>(RecentChangedFiles)
+:map gy <Action>(RecentChangedFiles)
 :map <leader>sh <Action>(LocalHistory.ShowHistory)
 :map <leader>m <Action>(ShowIntentionActions)
 :map <leader>o <Action>(FileStructurePopup)
