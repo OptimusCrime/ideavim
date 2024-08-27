@@ -37,12 +37,10 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 
 ### Commands I always forget
 
-- `gUiw`: Uppercase inner word (lowercase `u` for lowercasing).
-- `m[A-Z]`: Create mark (using IDEA marks).
-- `'[A-Z]`: Goto mark.
 - `'.`: Goto line start of last change in buffer.
 - `%`: Goto end of bracket etc.
 - `gv`: Reselect last selection.
+- `gr{motion}`: Replace with registry
 
 ### Source changes
 

@@ -1,17 +1,19 @@
 " basic stuff
 set hlsearch
-set scrolloff=999
+set scrolloff=10
 set ignorecase smartcase
 set showmode
 set history=1000
 set incsearch
 set clipboard+=unnamed
 set relativenumber
+set ReplaceWithRegister
 set visualbell
-set idearefactormode=normal
+set idearefactormode=visual
 set showcmd
 set showmode
 set ideastatusicon=gray
+set virtualedit=onemore
 
 " extensions
 set surround
@@ -21,6 +23,15 @@ set NERDTree
 set argtextobj
 set sneak
 set quickscope
+
+" WhichKey configuration (plugin is toggled by <leader>8)
+let g:WhichKey_FontSize = 20
+let g:WhichKey_PrefixColor = "#a403fe"
+let g:WhichKey_CommandColor = "#01ffff"
+let g:WhichKey_PrefixStyle = "bold"
+let g:WhichKey_KeyStyle = "italic"
+let g:WhichKey_SortOrder = "by_key_prefix_first"
+let g:WhichKey_ShowTypedSequence = "true"
 
 " register leader
 let mapleader = " "
@@ -104,9 +115,25 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>hj <Action>(ShowHoverInfo)
 
 " breakpoints
-:map <leader>bb <Action>(ToggleLineBreakpoint)
-:map <leader>bs <Action>(ViewBreakpoints)
-:map <leader>br <Action>(Debugger.RemoveAllBreakpoints)
+:map <leader>ub <Action>(ToggleLineBreakpoint)
+:map <leader>us <Action>(ViewBreakpoints)
+:map <leader>ur <Action>(Debugger.RemoveAllBreakpoints)
+
+" bookmarks
+nmap <leader>bs <Action>(ShowBookmarks)
+nmap <leader>bt <Action>(ActivateBookmarksToolWindow)
+nmap <leader>bb <Action>(ToggleBookmark)
+nmap <leader>be <Action>(EditBookmark)
+nmap <leader>bp <Action>(GotoPreviousBookmark)
+nmap <leader>bn <Action>(GotoNextBookmark)
+let g:WhichKeyDesc_bookmarks = "<leader>b Bookmarks"
+let g:WhichKeyDesc_bookmarks_menu = "<leader>bm Bookmark Menu"
+let g:WhichKeyDesc_bookmarks_show = "<leader>bs Show Bookmarks"
+let g:WhichKeyDesc_bookmarks_tool = "<leader>bt Bookmark Tool"
+let g:WhichKeyDesc_bookmarks_toggle_bookmark = "<leader>bb Toggle Bookmark"
+let g:WhichKeyDesc_bookmarks_edit = "<leader>be Edit Bookmark"
+let g:WhichKeyDesc_bookmarks_prev = "<leader>bp Previous Bookmark"
+let g:WhichKeyDesc_bookmarks_next = "<leader>bn Next Bookmark"
 
 " comment out
 :map <leader>cl <Action>(CommentByLineComment)
@@ -183,7 +210,33 @@ nmap <C-a> ggVG"+y
 :map <leader>ns <Action>(NewScratchFile)
 :map <leader>an <Action>(Annotate)
 :map <leader>tw <Action>(ActivateProjectToolWindow)
-:map <leader>jj viwp
+
+" toggle line number relative
+function! NumberToggle()
+  if(&relativenumber == 1)
+    set norelativenumber
+  else
+    set relativenumber number
+  endif
+endfunction
+
+nnoremap <leader><Tab> :call NumberToggle()<CR>
+
+" toggle which-key plugin
+let s:whichKeyEnabled = 0
+function! WhichKeyToggle()
+  if s:whichKeyEnabled
+    set which-key!
+    set notimeout!
+    let s:whichKeyEnabled = 0
+  else
+    set which-key
+    set notimeout
+    let s:whichKeyEnabled = 1
+  endif
+endfunction
+
+nnoremap <leader>8 :call WhichKeyToggle()<CR>
 
 " source
-:map <leader>9 :source ~/.ideavimrc<CR>
+:map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
