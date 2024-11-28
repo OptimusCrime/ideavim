@@ -1,6 +1,6 @@
 " basic stuff
 set hlsearch
-set scrolloff=10
+set scrolloff=5
 set ignorecase smartcase
 set showmode
 set history=1000
@@ -23,6 +23,9 @@ set NERDTree
 set argtextobj
 set sneak
 set quickscope
+set switch
+set peekaboo
+set functiontextobj
 
 " WhichKey configuration (plugin is toggled by <leader>8)
 let g:WhichKey_FontSize = 20
@@ -36,12 +39,13 @@ let g:WhichKey_ShowTypedSequence = "true"
 " register leader
 let mapleader = " "
 
-map H ^
-map L $
-map J }
-map K {
+nmap <leader>ss :Switch<cr>
+nmap <leader>SS :SwitchReverse<cr>
+let g:WhichKeyDesc_switch = "<leader>ss Switch"
+let g:WhichKeyDesc_switch_reverse = "<leader>ss Switch"w
 
-map <leader>@ ~
+" Enable all patterns from multiple groups
+let g:switch_definitions = 'group:basic,group:java,group:javascript'
 
 " After block yank and paste, move cursor to the end of operated text and don't override register
 vnoremap p "_dP`]
@@ -107,17 +111,29 @@ nnoremap <leader><cr> :nohlsearch<cr>
 :map <leader>RR <Action>(Refactorings.QuickListPopupAction)
 :map <leader>sw <Action>(SurroundWith)
 :map <leader>oi <Action>(OptimizeImports)
+let g:WhichKeyDesc_rename_element = "<leader>rr Rename element"
+let g:WhichKeyDesc_refactors = "<leader>RR Refactorings"
+let g:WhichKeyDesc_surround_with = "<leader>sw Surround with"
+let g:WhichKeyDesc_optimize_import = "<leader>sw Optimize import"
+
 
 " stuff
 :map <leader>er <Action>(QuickJavaDoc)
 :map <leader>ee <Action>(ShowErrorDescription)
 :map <leader>hh <Action>(QuickImplementations)
 :map <leader>hj <Action>(ShowHoverInfo)
+let g:WhichKeyDesc_quick_java_doc = "<leader>er Quick docs"
+let g:WhichKeyDesc_show_error_description = "<leader>ee Show error description"
+let g:WhichKeyDesc_quick_implementations = "<leader>hh Quick implementations"
+let g:WhichKeyDesc_show_info = "<leader>hj Show info"
 
 " breakpoints
 :map <leader>ub <Action>(ToggleLineBreakpoint)
 :map <leader>us <Action>(ViewBreakpoints)
 :map <leader>ur <Action>(Debugger.RemoveAllBreakpoints)
+let g:WhichKeyDesc_toggle_line_breakpoint = "<leader>ub Toggle line breakpoint"
+let g:WhichKeyDesc_view_breakpoints = "<leader>us View breakpoints"
+let g:WhichKeyDesc_remove_all_breakpoints = "<leader>ur Remove all breakpoints"
 
 " bookmarks
 nmap <leader>bs <Action>(ShowBookmarks)
@@ -138,11 +154,16 @@ let g:WhichKeyDesc_bookmarks_next = "<leader>bn Next Bookmark"
 " comment out
 :map <leader>cl <Action>(CommentByLineComment)
 :map <leader>cb <Action>(CommentByBlockComment)
+let g:WhichKeyDesc_comment_by_line = "<leader>cl Comment by line"
+let g:WhichKeyDesc_comment_by_block = "<leader>cb Comment by block"
 
 " ace
 :map ff <Action>(AceAction)
 :map fv <Action>(AceTargetAction)
 :map fl <Action>(AceLineAction)
+let g:WhichKeyDesc_ace_action = "ff Ace action"
+let g:WhichKeyDesc_ace_target_action = "fv Ace target action"
+let g:WhichKeyDesc_ace_line_action = "fl Ace line action"
 
 " various functionality
 :map <leader>hu <Action>(HighlightUsagesInFile)
@@ -155,6 +176,17 @@ let g:WhichKeyDesc_bookmarks_next = "<leader>bn Next Bookmark"
 :map <leader>rt <Action>(RunContextGroup)
 :map gh <Action>(GotoDeclaration)
 :map <leader>so <Action>(SelectAllOccurrences)
+let g:WhichKeyDesc_highlight_usages_in_file = "<leader>hu Highlight usages in file"
+let g:WhichKeyDesc_recent_locations = "<leader>rl Recent locations"
+let g:WhichKeyDesc_recent_changed_files = "gy Recent changed files"
+let g:WhichKeyDesc_show_history = "<leader>sh Show history"
+let g:WhichKeyDesc_show_intent_actions = "<leader>m Show intent actions"
+let g:WhichKeyDesc_file_structure_popup = "<leader>o File structure popup"
+let g:WhichKeyDesc_select_in_project_view = "<leader>pw Select in project view"
+let g:WhichKeyDesc_run_context_group = "<leader>rt Run context group"
+let g:WhichKeyDesc_goto_declaration = "gh Goto declaration"
+let g:WhichKeyDesc_select_all_occurrences = "<leader>so Select all occurrences"
+
 xnoremap < <gv
 xnoremap > >gv
 
@@ -162,22 +194,26 @@ xnoremap > >gv
 nmap <C-a> ggVG"+y
 
 " code navigation
-:map gf {
-:map gj }
-:map gd <Action>(MethodUp)
-:map gk <Action>(MethodDown)
-:map ge <Action>(GotoNextError)
-:map gE <Action>(GotoPreviousError)
-:map gs <Action>(JumpToLastChange)
-:map gl <Action>(JumpToNextChange)
-:map ga <Action>(VcsShowNextChangeMarker)
-:map gø <Action>(VcsShowPrevChangeMarker)
+" :map <leader>j <Action>(MethodDown)
+" :map <leader>J <Action>(MethodUp)
+:map g[ <Action>(GotoNextError)
+:map g] <Action>(GotoPreviousError)
+:map <leader>k <Action>(JumpToLastChange)
+:map <leader>K <Action>(JumpToNextChange)
+" :map ga <Action>(VcsShowNextChangeMarker)
+" :map gø <Action>(VcsShowPrevChangeMarker)
 :map gn <Action>(GotoNextElementUnderCaretUsage)
 :map gN <Action>(GotoPrevElementUnderCaretUsage)
+let g:WhichKeyDesc_goto_next_error = "g] Goto next error"
+let g:WhichKeyDesc_goto_previous_error = "g[ Goto previous error"
+let g:WhichKeyDesc_jump_to_last_change = "<leader>k Jump to last change"
+let g:WhichKeyDesc_jump_to_next_change = "<leader>K Jump to next change"
+let g:WhichKeyDesc_goto_next_element_under_caret_usage = "gn Goto next element under caret usage"
+let g:WhichKeyDesc_goto_prev_element_under_caret_usage = "gN Goto previous element under caret usage"
 
 " splits
-:nmap <leader>i <Action>(PrevSplitter)
-:nmap <c-v> <Action>(SplitVertically)
+:map <leader>i <Action>(PrevSplitter)
+:map <c-b> <Action>(SplitVertically)
 
 " built-in navigation to navigated items works better
 :nmap <c-o> <Action>(Back)
@@ -205,11 +241,19 @@ nmap <C-a> ggVG"+y
 :map <leader>1 <Action>(Run)
 :map <leader>2 <Action>(Debug)
 :map <leader>0 <Action>(Stop)
+let g:WhichKeyDesc_choose_run_configuration = "<leader>cg Choose run configuration"
+let g:WhichKeyDesc_choose_debug_configuration = "<leader>dg Choose debug configuration"
+let g:WhichKeyDesc_run = "<leader>1 Run"
+let g:WhichKeyDesc_debug = "<leader>2 Debug"
+let g:WhichKeyDesc_stop = "<leader>0 Stop"
 
 " other things
 :map <leader>ns <Action>(NewScratchFile)
 :map <leader>an <Action>(Annotate)
 :map <leader>tw <Action>(ActivateProjectToolWindow)
+let g:WhichKeyDesc_new_scratch_file = "<leader>ns New scratch file"
+let g:WhichKeyDesc_annotate = "<leader>an Annotate"
+let g:WhichKeyDesc_activate_project_window = "<leader>tw Activate project tool window"
 
 " toggle line number relative
 function! NumberToggle()
@@ -220,7 +264,8 @@ function! NumberToggle()
   endif
 endfunction
 
-nnoremap <leader><Tab> :call NumberToggle()<CR>
+nnoremap <leader><Tab> :call NumberToggle()<cr>
+let g:WhichKeyDesc_toggle_line_numbers = "<leader><Tab> Toggle line numbers"
 
 " toggle which-key plugin
 let s:whichKeyEnabled = 0
@@ -236,7 +281,9 @@ function! WhichKeyToggle()
   endif
 endfunction
 
-nnoremap <leader>8 :call WhichKeyToggle()<CR>
+nnoremap <leader>8 :call WhichKeyToggle()<cr>
+let g:WhichKeyDesc_toggle_which_key = "<leader>8 Toggle WhichKey"
 
 " source
 :map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
+let g:WhichKeyDesc_reload_vim_rc = "<leader>9 Reload VimRc"

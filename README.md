@@ -38,9 +38,11 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 ### Commands I always forget
 
 - `'.`: Goto line start of last change in buffer.
-- `%`: Goto end of bracket etc.
+- `nG`: Goto line n.
+- `%`: Goto matching pair.
 - `gv`: Reselect last selection.
 - `gr{motion}`: Replace with registry
+- `]}`: Goto unmatched }
 
 ### Source changes
 
@@ -59,6 +61,9 @@ source ~/.ideavimrc
 
 - [IdeaVim-Quickscope](https://plugins.jetbrains.com/plugin/19417-ideavim-quickscope)
 - [IdeaVim-Sneak](https://plugins.jetbrains.com/plugin/15348-ideavim-sneak) 
+- [Vim Switch](https://plugins.jetbrains.com/plugin/25899-vim-switch)
+- [Vim FunctionTextObj](https://plugins.jetbrains.com/plugin/25897-vim-functiontextobj)
+- [Vim Peekaboo](https://plugins.jetbrains.com/plugin/25776-vim-peekaboo)
 - Optional: [Which-Key](https://plugins.jetbrains.com/plugin/15976-which-key)
 
 ### Random plugins
