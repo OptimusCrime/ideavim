@@ -26,6 +26,7 @@ set quickscope
 set switch
 set peekaboo
 set functiontextobj
+set commentary
 
 " WhichKey configuration (plugin is toggled by <leader>8)
 let g:WhichKey_FontSize = 20
@@ -50,6 +51,11 @@ let g:switch_definitions = 'group:basic,group:java,group:javascript'
 " After block yank and paste, move cursor to the end of operated text and don't override register
 vnoremap p "_dP`]
 nnoremap p p`]
+
+" Center screen after screen movement
+nnoremap H Hzz
+nnoremap M Mzz
+nnoremap L Lzz
 
 " Y yank whole line by default
 vnoremap y ygv<Esc>$
@@ -150,12 +156,6 @@ let g:WhichKeyDesc_bookmarks_toggle_bookmark = "<leader>bb Toggle Bookmark"
 let g:WhichKeyDesc_bookmarks_edit = "<leader>be Edit Bookmark"
 let g:WhichKeyDesc_bookmarks_prev = "<leader>bp Previous Bookmark"
 let g:WhichKeyDesc_bookmarks_next = "<leader>bn Next Bookmark"
-
-" comment out
-:map <leader>cl <Action>(CommentByLineComment)
-:map <leader>cb <Action>(CommentByBlockComment)
-let g:WhichKeyDesc_comment_by_line = "<leader>cl Comment by line"
-let g:WhichKeyDesc_comment_by_block = "<leader>cb Comment by block"
 
 " ace
 :map ff <Action>(AceAction)
@@ -287,3 +287,10 @@ let g:WhichKeyDesc_toggle_which_key = "<leader>8 Toggle WhichKey"
 " source
 :map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
 let g:WhichKeyDesc_reload_vim_rc = "<leader>9 Reload VimRc"
+
+nmap <C-n> <Plug>NextWholeOccurrence
+xmap <C-n> <Plug>NextWholeOccurrence
+nmap g<C-n> <Plug>NextOccurrence
+xmap g<C-n> <Plug>NextOccurrence
+xmap <C-x> <Plug>SkipOccurrence
+xmap <C-p> <Plug>RemoveOccurrence

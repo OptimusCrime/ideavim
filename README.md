@@ -43,6 +43,9 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 - `gv`: Reselect last selection.
 - `gr{motion}`: Replace with registry
 - `]}`: Goto unmatched }
+- `gc{motion}`: Comment or uncomment
+- `af` and `if`: Outer and inner function text objects
+- `ys{motion}{char}`: Surround motion with char
 
 ### Source changes
 
