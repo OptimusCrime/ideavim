@@ -28,6 +28,35 @@ set peekaboo
 set functiontextobj
 set commentary
 
+" set the various handlers
+sethandler <C-a> a:vim
+sethandler <C-b> a:vim
+sethandler <C-c> a:vim
+sethandler <C-d> a:vim
+sethandler <C-e> a:vim
+sethandler <C-f> a:vim
+sethandler <C-g> a:vim
+sethandler <C-h> a:vim
+sethandler <C-i> a:vim
+sethandler <C-j> a:ide
+sethandler <C-k> a:ide
+sethandler <C-l> a:vim
+sethandler <C-m> a:vim
+sethandler <C-n> a:vim
+sethandler <C-o> a:vim
+sethandler <C-p> a:vim
+sethandler <C-q> a:vim
+sethandler <C-r> a:vim
+sethandler <C-s> a:vim
+sethandler <C-t> a:vim
+sethandler <C-u> a:vim
+sethandler <C-v> a:vim
+sethandler <C-v> a:vim
+sethandler <C-w> a:vim
+sethandler <C-x> a:vim
+sethandler <C-y> a:vim
+sethandler <C-z> a:vim
+
 " WhichKey configuration (plugin is toggled by <leader>8)
 let g:WhichKey_FontSize = 20
 let g:WhichKey_PrefixColor = "#a403fe"

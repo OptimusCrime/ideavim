@@ -22,13 +22,6 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 
 ## Stuff to remember
 
-### Plugin settings
-
-| Shortcut | Handler |
-|----------|---------|
-| ^J       | IDE     |
-| ^K       | IDE     |
-
 ### Default commands
 
 - `gd`: Goto definition.
