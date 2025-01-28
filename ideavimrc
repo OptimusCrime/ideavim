@@ -27,6 +27,7 @@ set switch
 set peekaboo
 set functiontextobj
 set commentary
+set mini-ai
 
 " set the various handlers
 sethandler <C-a> a:vim

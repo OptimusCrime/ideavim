@@ -26,7 +26,7 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 
 - `gd`: Goto definition.
 
-[See all](https://github.com/JetBrains/ideavim/blob/master/src/main/java/com/maddyhome/idea/vim/package-info.java)
+[See all](https://github.com/JetBrains/ideavim/tree/master/vim-engine/src/main/resources/ksp-generated)
 
 ### Commands I always forget
 
@@ -40,6 +40,12 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 - `af` and `if`: Outer and inner function text objects
 - `ys{motion}{char}`: Surround motion with char
 
+### Text objects
+
+- `if` / `af`: Inner/Outer function body
+- `iq` / `aq`: Inside/Outside any quotes
+- `ab` / `ib`: Inside/Outside parentheses, curly braces, and square brackets
+
 ### Source changes
 
 Open up the vim terminal inside IDEA (by typing `:`), then execute:
@@ -47,6 +53,18 @@ Open up the vim terminal inside IDEA (by typing `:`), then execute:
 ```
 source ~/.ideavimrc
 ```
+
+Or, via the mapping <kbd>space</kbd> <kbd>9</kbd>
+
+### Own functions
+
+#### Toggle WhichKey
+
+Enable/Disable the plugin with the mapping <kbd>space</kbd> <kbd>8</kbd>
+
+#### Toggle relative line numbers
+
+Enable/Disable relative line numbers in the gutter with the mapping <kbd>space</kbd> <kbd>tab</kbd>
 
 ## Plugins
 
