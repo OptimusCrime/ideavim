@@ -134,13 +134,18 @@ vnoremap <C-u> <C-u>zz
 vnoremap <C-o> <C-d>zz
 
 " easy window navigation
-nnoremap <a-k> gT
-nnoremap <a-j> gt
-nnoremap <c-s-tab> gT
-nnoremap <c-tab> gt
+:map [[ <Action>(MethodUp)
+:map ]] <Action>(MethodDown)
+:map <a-k> gT
+:map <a-j> gt
+:map <Tab> <Action>(NextTab)
+:map <S-Tab> <Action>(PreviousTab)
 
 " clear the search buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
+
+" select whole file
+:map <Leader>aa ggVG
 
 " code Refactoring
 :map <leader>rr <Action>(RenameElement)
@@ -151,7 +156,6 @@ let g:WhichKeyDesc_rename_element = "<leader>rr Rename element"
 let g:WhichKeyDesc_refactors = "<leader>RR Refactorings"
 let g:WhichKeyDesc_surround_with = "<leader>sw Surround with"
 let g:WhichKeyDesc_optimize_import = "<leader>sw Optimize import"
-
 
 " stuff
 :map <leader>er <Action>(QuickJavaDoc)
@@ -186,6 +190,10 @@ let g:WhichKeyDesc_bookmarks_toggle_bookmark = "<leader>bb Toggle Bookmark"
 let g:WhichKeyDesc_bookmarks_edit = "<leader>be Edit Bookmark"
 let g:WhichKeyDesc_bookmarks_prev = "<leader>bp Previous Bookmark"
 let g:WhichKeyDesc_bookmarks_next = "<leader>bn Next Bookmark"
+
+" commenting
+xmap <Leader>/ <Action>(CommentByLineComment)<ESC><ESC>
+nmap <Leader>/ <Action>(CommentByLineComment)k
 
 " ace
 :map ff <Action>(AceAction)
@@ -230,8 +238,6 @@ nmap <C-a> ggVG"+y
 :map g] <Action>(GotoPreviousError)
 :map <leader>k <Action>(JumpToLastChange)
 :map <leader>K <Action>(JumpToNextChange)
-" :map ga <Action>(VcsShowNextChangeMarker)
-" :map gø <Action>(VcsShowPrevChangeMarker)
 :map gn <Action>(GotoNextElementUnderCaretUsage)
 :map gN <Action>(GotoPrevElementUnderCaretUsage)
 let g:WhichKeyDesc_goto_next_error = "g] Goto next error"
@@ -242,8 +248,8 @@ let g:WhichKeyDesc_goto_next_element_under_caret_usage = "gn Goto next element u
 let g:WhichKeyDesc_goto_prev_element_under_caret_usage = "gN Goto previous element under caret usage"
 
 " splits
-:map <leader>i <Action>(PrevSplitter)
-:map <c-b> <Action>(SplitVertically)
+:map <Leader>sv <Action>(SplitVertically)
+:map <Leader>sn <Action>(PrevSplitter)
 
 " built-in navigation to navigated items works better
 :nmap <c-o> <Action>(Back)
@@ -296,6 +302,20 @@ endfunction
 
 nnoremap <leader><Tab> :call NumberToggle()<cr>
 let g:WhichKeyDesc_toggle_line_numbers = "<leader><Tab> Toggle line numbers"
+
+" HarpoonIJ
+map <leader>hs <Action>(ShowHarpoon)
+map <leader>ha <Action>(AddToHarpoon)
+map <leader>H1 <Action>(SetHarpoon1)
+map <leader>H2 <Action>(SetHarpoon2)
+map <leader>H3 <Action>(SetHarpoon3)
+map <leader>H4 <Action>(SetHarpoon4)
+map <leader>H5 <Action>(SetHarpoon5)
+map <leader>h1 <Action>(GotoHarpoon1)
+map <leader>h2 <Action>(GotoHarpoon2)
+map <leader>h3 <Action>(GotoHarpoon3)
+map <leader>h4 <Action>(GotoHarpoon4)
+map <leader>h5 <Action>(GotoHarpoon5)
 
 " toggle which-key plugin
 let s:whichKeyEnabled = 0

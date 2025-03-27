@@ -78,6 +78,7 @@ Enable/Disable relative line numbers in the gutter with the mapping <kbd>space</
 - [Vim Switch](https://plugins.jetbrains.com/plugin/25899-vim-switch)
 - [Vim FunctionTextObj](https://plugins.jetbrains.com/plugin/25897-vim-functiontextobj)
 - [Vim Peekaboo](https://plugins.jetbrains.com/plugin/25776-vim-peekaboo)
+- [HarpoonIJ](https://plugins.jetbrains.com/plugin/20782-harpoonij)
 - Optional: [Which-Key](https://plugins.jetbrains.com/plugin/15976-which-key)
 
 ### Random plugins
