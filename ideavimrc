@@ -287,6 +287,7 @@ let g:WhichKeyDesc_stop = "<leader>0 Stop"
 :map <leader>ns <Action>(NewScratchFile)
 :map <leader>an <Action>(Annotate)
 :map <leader>tw <Action>(ActivateProjectToolWindow)
+nnoremap <leader>rb :s /<<<<<<<\\|=======\\|>>>>>>><CR>
 let g:WhichKeyDesc_new_scratch_file = "<leader>ns New scratch file"
 let g:WhichKeyDesc_annotate = "<leader>an Annotate"
 let g:WhichKeyDesc_activate_project_window = "<leader>tw Activate project tool window"
@@ -335,7 +336,7 @@ nnoremap <leader>8 :call WhichKeyToggle()<cr>
 let g:WhichKeyDesc_toggle_which_key = "<leader>8 Toggle WhichKey"
 
 " source
-:map <leader>9 <Action>(IdeaVim.ReloadVimRc.reload)
+:map <leader>9 :source ~/.ideavimrc<CR>
 let g:WhichKeyDesc_reload_vim_rc = "<leader>9 Reload VimRc"
 
 nmap <C-n> <Plug>NextWholeOccurrence
