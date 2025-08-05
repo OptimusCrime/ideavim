@@ -74,7 +74,6 @@ Enable/Disable relative line numbers in the gutter with the mapping <kbd>space</
 ### IdeaVim Plugins
 
 - [IdeaVim-Quickscope](https://plugins.jetbrains.com/plugin/19417-ideavim-quickscope)
-- [IdeaVim-Sneak](https://plugins.jetbrains.com/plugin/15348-ideavim-sneak) 
 - [Vim Switch](https://plugins.jetbrains.com/plugin/25899-vim-switch)
 - [Vim FunctionTextObj](https://plugins.jetbrains.com/plugin/25897-vim-functiontextobj)
 - [HarpoonIJ](https://plugins.jetbrains.com/plugin/20782-harpoonij)

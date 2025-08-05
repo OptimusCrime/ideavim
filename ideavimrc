@@ -21,7 +21,7 @@ set multiple-cursors
 set highlightedyank
 set NERDTree
 set argtextobj
-set sneak
+Plug 'justinmk/vim-sneak'
 set quickscope
 set switch
 set functiontextobj
