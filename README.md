@@ -30,21 +30,21 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 
 ### Commands I always forget
 
-- `'.`: Goto line start of last change in buffer.
+- `` `.``: Goto line start of last change in buffer.
 - `nG`: Goto line n.
 - `%`: Goto matching pair.
 - `gv`: Reselect last selection.
 - `gr{motion}`: Replace with registry
 - `]}`: Goto unmatched }
 - `gc{motion}`: Comment or uncomment
-- `af` and `if`: Outer and inner function text objects
 - `ys{motion}{char}`: Surround motion with char
 
 ### Text objects
 
 - `if` / `af`: Inner/Outer function body
 - `iq` / `aq`: Inside/Outside any quotes
-- `ab` / `ib`: Inside/Outside parentheses, curly braces, and square brackets
+- `ab` / `ib`: Inside/Outside parentheses and square brackets
+- `aB` / `iB`: Inside/Outside curly braces
 
 ### Source changes
 
@@ -77,7 +77,6 @@ Enable/Disable relative line numbers in the gutter with the mapping <kbd>space</
 - [IdeaVim-Sneak](https://plugins.jetbrains.com/plugin/15348-ideavim-sneak) 
 - [Vim Switch](https://plugins.jetbrains.com/plugin/25899-vim-switch)
 - [Vim FunctionTextObj](https://plugins.jetbrains.com/plugin/25897-vim-functiontextobj)
-- [Vim Peekaboo](https://plugins.jetbrains.com/plugin/25776-vim-peekaboo)
 - [HarpoonIJ](https://plugins.jetbrains.com/plugin/20782-harpoonij)
 - Optional: [Which-Key](https://plugins.jetbrains.com/plugin/15976-which-key)
 

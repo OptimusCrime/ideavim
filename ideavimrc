@@ -24,7 +24,6 @@ set argtextobj
 set sneak
 set quickscope
 set switch
-set peekaboo
 set functiontextobj
 set commentary
 set mini-ai
@@ -77,6 +76,8 @@ let g:WhichKeyDesc_switch_reverse = "<leader>ss Switch"w
 
 " Enable all patterns from multiple groups
 let g:switch_definitions = 'group:basic,group:java,group:javascript'
+
+nmap <leader>nn :NERDTree<CR>
 
 " After block yank and paste, move cursor to the end of operated text and don't override register
 vnoremap p "_dP`]
@@ -134,8 +135,6 @@ vnoremap <C-u> <C-u>zz
 vnoremap <C-o> <C-d>zz
 
 " easy window navigation
-:map [[ <Action>(MethodUp)
-:map ]] <Action>(MethodDown)
 :map <a-k> gT
 :map <a-j> gt
 :map <Tab> <Action>(NextTab)
@@ -147,7 +146,7 @@ nnoremap <leader><cr> :nohlsearch<cr>
 " select whole file
 :map <Leader>aa ggVG
 
-" code Refactoring
+" code refactoring
 :map <leader>rr <Action>(RenameElement)
 :map <leader>RR <Action>(Refactorings.QuickListPopupAction)
 :map <leader>sw <Action>(SurroundWith)
@@ -232,8 +231,8 @@ xnoremap > >gv
 nmap <C-a> ggVG"+y
 
 " code navigation
-" :map <leader>j <Action>(MethodDown)
-" :map <leader>J <Action>(MethodUp)
+:map [[ <Action>(MethodUp)
+:map ]] <Action>(MethodDown)
 :map g[ <Action>(GotoNextError)
 :map g] <Action>(GotoPreviousError)
 :map <leader>k <Action>(JumpToLastChange)
@@ -284,7 +283,8 @@ let g:WhichKeyDesc_debug = "<leader>2 Debug"
 let g:WhichKeyDesc_stop = "<leader>0 Stop"
 
 " other things
-:map <leader>ns <Action>(NewScratchFile)
+:map <leader>ns <Action>(NewScratchBuffer)
+:map <leader>nd <Action>(Scratch.ChangeLanguage)
 :map <leader>an <Action>(Annotate)
 :map <leader>tw <Action>(ActivateProjectToolWindow)
 nnoremap <leader>rb :s /<<<<<<<\\|=======\\|>>>>>>><CR>
@@ -345,3 +345,6 @@ nmap g<C-n> <Plug>NextOccurrence
 xmap g<C-n> <Plug>NextOccurrence
 xmap <C-x> <Plug>SkipOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
+
+nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
+nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
