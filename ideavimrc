@@ -23,9 +23,9 @@ set NERDTree
 set argtextobj
 Plug 'justinmk/vim-sneak'
 set quickscope
-set switch
-set functiontextobj
 set commentary
+set anyobject
+set dial
 set mini-ai
 
 " set the various handlers
@@ -228,7 +228,7 @@ xnoremap < <gv
 xnoremap > >gv
 
 " copy whole file
-nmap <C-a> ggVG"+y
+nmap <C-;> ggVG"+y
 
 " code navigation
 :map [[ <Action>(MethodUp)
@@ -348,3 +348,7 @@ xmap <C-p> <Plug>RemoveOccurrence
 
 nnoremap [e  :<c-u>execute 'move -1-'. v:count1<cr>
 nnoremap ]e  :<c-u>execute 'move +'. v:count1<cr>
+
+nmap <leader>rm <Action>(SafeDelete)
+nmap <leader>rn <Action>(RenameFile)
+nmap <leader>md <Action>(NewDir)
