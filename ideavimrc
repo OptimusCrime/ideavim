@@ -69,38 +69,27 @@ let g:WhichKey_ShowTypedSequence = "true"
 " register leader
 let mapleader = " "
 
-nmap <leader>ss :Switch<cr>
-nmap <leader>SS :SwitchReverse<cr>
-let g:WhichKeyDesc_switch = "<leader>ss Switch"
-let g:WhichKeyDesc_switch_reverse = "<leader>ss Switch"w
-
-" Enable all patterns from multiple groups
-let g:switch_definitions = 'group:basic,group:java,group:javascript'
-
 nmap <leader>nn :NERDTree<CR>
 
-" After block yank and paste, move cursor to the end of operated text and don't override register
+" after block yank and paste, move cursor to the end of operated text and don't override register
 vnoremap p "_dP`]
 nnoremap p p`]
 
-" Center screen after screen movement
-nnoremap H Hzz
-nnoremap M Mzz
-nnoremap L Lzz
+" motions
+nnoremap H ^
+nnoremap L $
+nnoremap W [w
+nnoremap B [b
+nnoremap E ]w
 
 " Y yank whole line by default
 vnoremap y ygv<Esc>$
 nnoremap Y y$
 
-" Yank and paste from clipboard
-nnoremap ,y "+y
-vnoremap ,y "+y
-nnoremap ,yy "+yy
-nnoremap ,p "+p
-
 " have x (removes single character) not go into the default registry
 nnoremap x "_x
-" Make X an operator that removes without placing text in the default registry
+
+" make X an operator that removes without placing text in the default registry
 nmap X "_d
 nmap XX "_dd
 vmap X "_d
@@ -110,33 +99,31 @@ vmap x "_d
 nnoremap c "xc
 xnoremap c "xc
 
-" Change line, better use S for this.
+" change line, better use S for this.
 nmap cc 1S
 
-" Copy Word
+" copy Word
 nmap ,c yiw
 
-" Select word
+" select word
 nmap ,v viw
 
-" Reselect last-pasted text
+" reselect last-pasted text
 nnoremap gp `[v`]
 
-" Center screen when jumping to next match
+" center screen when jumping to next match
 nnoremap n nzz
 nnoremap N Nzz
 vnoremap n nzz
 vnoremap N Nzz
 
-" Center screen when moving up and down
+" center screen when moving up and down
 nnoremap <C-u> <C-u>zz
 nnoremap <C-o> <C-d>zz
 vnoremap <C-u> <C-u>zz
 vnoremap <C-o> <C-d>zz
 
 " easy window navigation
-:map <a-k> gT
-:map <a-j> gt
 :map <Tab> <Action>(NextTab)
 :map <S-Tab> <Action>(PreviousTab)
 
@@ -145,6 +132,19 @@ nnoremap <leader><cr> :nohlsearch<cr>
 
 " select whole file
 :map <Leader>aa ggVG
+
+" execute macro saved in 'q' register
+nnoremap qj @q
+
+" move lines up/down with alt
+nnoremap <a-j> ma:m+1<cr>`a
+nnoremap <a-k> ma:m-2<cr>`a
+
+" delete/change word or WORD using alt
+nnoremap <a-d> "_diw
+nnoremap <a-s-d> ]b[w"_d]w
+nnoremap <a-c> "_ciw
+nnoremap <a-s-c> ]b[w"_c]w
 
 " code refactoring
 :map <leader>rr <Action>(RenameElement)
@@ -166,29 +166,13 @@ let g:WhichKeyDesc_show_error_description = "<leader>ee Show error description"
 let g:WhichKeyDesc_quick_implementations = "<leader>hh Quick implementations"
 let g:WhichKeyDesc_show_info = "<leader>hj Show info"
 
-" breakpoints
-:map <leader>ub <Action>(ToggleLineBreakpoint)
-:map <leader>us <Action>(ViewBreakpoints)
-:map <leader>ur <Action>(Debugger.RemoveAllBreakpoints)
-let g:WhichKeyDesc_toggle_line_breakpoint = "<leader>ub Toggle line breakpoint"
-let g:WhichKeyDesc_view_breakpoints = "<leader>us View breakpoints"
-let g:WhichKeyDesc_remove_all_breakpoints = "<leader>ur Remove all breakpoints"
-
-" bookmarks
-nmap <leader>bs <Action>(ShowBookmarks)
-nmap <leader>bt <Action>(ActivateBookmarksToolWindow)
-nmap <leader>bb <Action>(ToggleBookmark)
-nmap <leader>be <Action>(EditBookmark)
-nmap <leader>bp <Action>(GotoPreviousBookmark)
-nmap <leader>bn <Action>(GotoNextBookmark)
-let g:WhichKeyDesc_bookmarks = "<leader>b Bookmarks"
-let g:WhichKeyDesc_bookmarks_menu = "<leader>bm Bookmark Menu"
-let g:WhichKeyDesc_bookmarks_show = "<leader>bs Show Bookmarks"
-let g:WhichKeyDesc_bookmarks_tool = "<leader>bt Bookmark Tool"
-let g:WhichKeyDesc_bookmarks_toggle_bookmark = "<leader>bb Toggle Bookmark"
-let g:WhichKeyDesc_bookmarks_edit = "<leader>be Edit Bookmark"
-let g:WhichKeyDesc_bookmarks_prev = "<leader>bp Previous Bookmark"
-let g:WhichKeyDesc_bookmarks_next = "<leader>bn Next Bookmark"
+" breakpoints (<leader>b)
+:map <leader>bb <Action>(ToggleLineBreakpoint)
+:map <leader>bw <Action>(ViewBreakpoints)
+:map <leader>ba <Action>(Debugger.RemoveAllBreakpoints)
+let g:WhichKeyDesc_toggle_line_breakpoint = "<leader>bb Toggle line breakpoint"
+let g:WhichKeyDesc_view_breakpoints = "<leader>bw View breakpoints"
+let g:WhichKeyDesc_remove_all_breakpoints = "<leader>ba Remove all breakpoints"
 
 " commenting
 xmap <Leader>/ <Action>(CommentByLineComment)<ESC><ESC>
@@ -287,7 +271,7 @@ let g:WhichKeyDesc_stop = "<leader>0 Stop"
 :map <leader>nd <Action>(Scratch.ChangeLanguage)
 :map <leader>an <Action>(Annotate)
 :map <leader>tw <Action>(ActivateProjectToolWindow)
-nnoremap <leader>rb :s /<<<<<<<\\|=======\\|>>>>>>><CR>
+nnoremap <leader>mc :s /<<<<<<<\\|=======\\|>>>>>>><CR>
 let g:WhichKeyDesc_new_scratch_file = "<leader>ns New scratch file"
 let g:WhichKeyDesc_annotate = "<leader>an Annotate"
 let g:WhichKeyDesc_activate_project_window = "<leader>tw Activate project tool window"
@@ -304,7 +288,7 @@ endfunction
 nnoremap <leader><Tab> :call NumberToggle()<cr>
 let g:WhichKeyDesc_toggle_line_numbers = "<leader><Tab> Toggle line numbers"
 
-" HarpoonIJ
+" harpoonIJ
 map <leader>hs <Action>(ShowHarpoon)
 map <leader>ha <Action>(AddToHarpoon)
 map <leader>H1 <Action>(SetHarpoon1)
@@ -343,6 +327,8 @@ nmap <C-n> <Plug>NextWholeOccurrence
 xmap <C-n> <Plug>NextWholeOccurrence
 nmap g<C-n> <Plug>NextOccurrence
 xmap g<C-n> <Plug>NextOccurrence
+map ]d <Action>(NextDiff)
+map [d <Action>(PreviousDiff)
 xmap <C-x> <Plug>SkipOccurrence
 xmap <C-p> <Plug>RemoveOccurrence
 
@@ -353,5 +339,7 @@ nmap <leader>rm <Action>(SafeDelete)
 nmap <leader>rn <Action>(RenameFile)
 nmap <leader>md <Action>(NewDir)
 
-nmap <C-a> <Plug>(DialIncrement)
-nmap <C-x> <Plug>(DialDecrement)
+" dial config
+nnoremap <C-a> :DialIncrement<cr>
+nnoremap <C-x> :DialDecrement<cr>
+
