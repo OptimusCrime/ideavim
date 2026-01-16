@@ -8,7 +8,7 @@ Clone this repo and symlink `ideavimrc` to your `$HOME` directory.
 
 ### Windows installation
 
-If you have to use Windows, you can symlink using the command example below. Run CMD as Administrator.
+If you use Windows, you can symlink using the command example below. Run CMD as Administrator.
 
 ```
 mklink C:\Users\your-username\.ideavimrc C:\Users\you-username\path\to\repo\ideavimrc
@@ -38,13 +38,6 @@ ln -s /path/to/repo/ideavimrc ~/.ideavimrc
 - `]}`: Goto unmatched }
 - `gc{motion}`: Comment or uncomment
 - `ys{motion}{char}`: Surround motion with char
-
-### Text objects
-
-- `if` / `af`: Inner/Outer function body
-- `iq` / `aq`: Inside/Outside any quotes
-- `ab` / `ib`: Inside/Outside parentheses and square brackets
-- `aB` / `iB`: Inside/Outside curly braces
 
 ### Source changes
 
@@ -76,7 +69,6 @@ Enable/Disable relative line numbers in the gutter with the mapping <kbd>space</
 - [IdeaVim-Quickscope](https://plugins.jetbrains.com/plugin/19417-ideavim-quickscope)
 - [HarpoonIJ](https://plugins.jetbrains.com/plugin/20782-harpoonij)
 - [anyobject](https://plugins.jetbrains.com/plugin/28333-vim-anyobject)
-- [dial](https://plugins.jetbrains.com/plugin/28237-vim-dial)
 - Optional: [Which-Key](https://plugins.jetbrains.com/plugin/15976-which-key)
 
 ### Random plugins

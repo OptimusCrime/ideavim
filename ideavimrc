@@ -25,8 +25,6 @@ Plug 'justinmk/vim-sneak'
 set quickscope
 set commentary
 set anyobject
-set dial
-set mini-ai
 
 " set the various handlers
 sethandler <C-a> a:vim
@@ -86,10 +84,9 @@ nnoremap E ]w
 vnoremap y ygv<Esc>$
 nnoremap Y y$
 
-" have x (removes single character) not go into the default registry
+" remove stuff without adding to register
+noremap <leader>D "_D
 nnoremap x "_x
-
-" make X an operator that removes without placing text in the default registry
 nmap X "_d
 nmap XX "_dd
 vmap X "_d
@@ -130,9 +127,6 @@ vnoremap <C-o> <C-d>zz
 " clear the search buffer when hitting return
 nnoremap <leader><cr> :nohlsearch<cr>
 
-" select whole file
-:map <Leader>aa ggVG
-
 " execute macro saved in 'q' register
 nnoremap qj @q
 
@@ -154,14 +148,16 @@ nnoremap <a-s-c> ]b[w"_c]w
 let g:WhichKeyDesc_rename_element = "<leader>rr Rename element"
 let g:WhichKeyDesc_refactors = "<leader>RR Refactorings"
 let g:WhichKeyDesc_surround_with = "<leader>sw Surround with"
-let g:WhichKeyDesc_optimize_import = "<leader>sw Optimize import"
+let g:WhichKeyDesc_optimize_import = "<leader>io Optimize import"
 
 " stuff
 :map <leader>er <Action>(QuickJavaDoc)
+:map <leader>gt <Action>(GotoTest)
 :map <leader>ee <Action>(ShowErrorDescription)
 :map <leader>hh <Action>(QuickImplementations)
 :map <leader>hj <Action>(ShowHoverInfo)
 let g:WhichKeyDesc_quick_java_doc = "<leader>er Quick docs"
+let g:WhichKeyDesc_goto_test = "<leader>gt Goto test"
 let g:WhichKeyDesc_show_error_description = "<leader>ee Show error description"
 let g:WhichKeyDesc_quick_implementations = "<leader>hh Quick implementations"
 let g:WhichKeyDesc_show_info = "<leader>hj Show info"
@@ -223,6 +219,8 @@ nmap <C-;> ggVG"+y
 :map <leader>K <Action>(JumpToNextChange)
 :map gn <Action>(GotoNextElementUnderCaretUsage)
 :map gN <Action>(GotoPrevElementUnderCaretUsage)
+let g:WhichKeyDesc_method_up = "]] Method up"
+let g:WhichKeyDesc_method_down = "]] Method down"
 let g:WhichKeyDesc_goto_next_error = "g] Goto next error"
 let g:WhichKeyDesc_goto_previous_error = "g[ Goto previous error"
 let g:WhichKeyDesc_jump_to_last_change = "<leader>k Jump to last change"
@@ -231,8 +229,10 @@ let g:WhichKeyDesc_goto_next_element_under_caret_usage = "gn Goto next element u
 let g:WhichKeyDesc_goto_prev_element_under_caret_usage = "gN Goto previous element under caret usage"
 
 " splits
-:map <Leader>sv <Action>(SplitVertically)
-:map <Leader>sn <Action>(PrevSplitter)
+:map <leader>sv <Action>(SplitVertically)
+:map <leader>sn <Action>(PrevSplitter)
+let g:WhichKeyDesc_split_vertically = "<leader>sv Split vertically"
+let g:WhichKeyDesc_previous_splitter = "<leader>sn Previous splitter"
 
 " built-in navigation to navigated items works better
 :nmap <c-o> <Action>(Back)
@@ -339,7 +339,7 @@ nmap <leader>rm <Action>(SafeDelete)
 nmap <leader>rn <Action>(RenameFile)
 nmap <leader>md <Action>(NewDir)
 
-" dial config
-nnoremap <C-a> :DialIncrement<cr>
-nnoremap <C-x> :DialDecrement<cr>
+" splotless
+nmap <leader>sp <Action>(com.github.ragurney.spotless.actions.ReformatFileAction)
 
+map <leader>HH <Action>(LeaderAction)
