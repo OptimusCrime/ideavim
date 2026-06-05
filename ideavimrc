@@ -15,6 +15,9 @@ set showmode
 set ideastatusicon=gray
 set virtualedit=onemore
 
+" register leader
+let mapleader = " "
+
 " extensions
 set surround
 set multiple-cursors
@@ -63,9 +66,6 @@ let g:WhichKey_PrefixStyle = "bold"
 let g:WhichKey_KeyStyle = "italic"
 let g:WhichKey_SortOrder = "by_key_prefix_first"
 let g:WhichKey_ShowTypedSequence = "true"
-
-" register leader
-let mapleader = " "
 
 nmap <leader>nn :NERDTree<CR>
 
@@ -175,12 +175,10 @@ xmap <Leader>/ <Action>(CommentByLineComment)<ESC><ESC>
 nmap <Leader>/ <Action>(CommentByLineComment)k
 
 " ace
-:map ff <Action>(AceAction)
-:map fv <Action>(AceTargetAction)
-:map fl <Action>(AceLineAction)
-let g:WhichKeyDesc_ace_action = "ff Ace action"
-let g:WhichKeyDesc_ace_target_action = "fv Ace target action"
-let g:WhichKeyDesc_ace_line_action = "fl Ace line action"
+:map <leader>ff <Action>(AceAction)
+:map <leader>FF <Action>(AceLineAction)
+let g:WhichKeyDesc_ace_action = "<leader>ff Ace action"
+let g:WhichKeyDesc_ace_line_action = "<leader>FF Ace line action"
 
 " various functionality
 :map <leader>hu <Action>(HighlightUsagesInFile)
@@ -343,3 +341,4 @@ nmap <leader>md <Action>(NewDir)
 nmap <leader>sp <Action>(com.github.ragurney.spotless.actions.ReformatFileAction)
 
 map <leader>HH <Action>(LeaderAction)
+map <leader>sn <Action>(SmartTypeCompletion)
